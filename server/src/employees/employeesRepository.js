@@ -43,4 +43,19 @@ const createEmployeeRepository = (
   });
 };
 
-export { getEmployeesRepository, createEmployeeRepository };
+const deleteEmployeeByDniRepository = (dni) => {
+  return new Promise((resolve, reject) => {
+    db.all("DELETE FROM employees WHERE dni = ?", [dni], (err, rows) => {
+      if (err) {
+        return reject(err);
+      }
+      resolve(rows);
+    });
+  });
+};
+
+export {
+  getEmployeesRepository,
+  createEmployeeRepository,
+  deleteEmployeeByDniRepository,
+};

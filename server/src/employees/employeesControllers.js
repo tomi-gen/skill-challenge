@@ -1,4 +1,8 @@
-import { getEmployees, createNewEmployee } from "./employeesServices.js";
+import {
+  getEmployees,
+  createNewEmployee,
+  deleteEmployeeByDni,
+} from "./employeesServices.js";
 
 const getEmployeesController = async (req, res) => {
   try {
@@ -17,8 +21,8 @@ const getEmployeesController = async (req, res) => {
 };
 
 const createNewEmployeeController = async (req, res) => {
-  const { dni, name, birthDate, isDeveloper, description, role } = req.body;
   try {
+    const { dni, name, birthDate, isDeveloper, description, role } = req.body;
     const newEmployee = await createNewEmployee(
       dni,
       name,
@@ -41,4 +45,44 @@ const createNewEmployeeController = async (req, res) => {
   }
 };
 
-export { getEmployeesController, createNewEmployeeController };
+const deleteEmployeeByDniController = async (req, res) => {
+  try {
+    const { dni } = req.params;
+    const employeeDeleted = await deleteEmployeeByDni(dni);
+
+    return res.status(200).json({
+      message: "Employee deleted successfully",
+      employee: employeeDeleted,
+    });
+  } catch (error) {
+    console.error("Error deleting the employee:", error.message);
+    return res.status(500).json({
+      message: "Server error while deleting employee",
+      error: error.message,
+    });
+  }
+};
+
+const updateEmployeeByDniController = async (req, res) => {
+  try {
+    const { dni } = req.params;
+    const employeeUpdated = await updateEmployeeByDni(dni);
+    res.status(200).json({
+      message: "Employee updated succesfully",
+      employee: employeeUpdated,
+    });
+  } catch (error) {
+    console.error("Error updating the employee");
+    return res.status(500).json({
+      message: "Server error while updating employee",
+      error: error.message,
+    });
+  }
+};
+
+export {
+  getEmployeesController,
+  createNewEmployeeController,
+  deleteEmployeeByDniController,
+  updateEmployeeByDniController,
+};

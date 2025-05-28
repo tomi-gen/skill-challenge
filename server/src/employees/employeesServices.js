@@ -1,6 +1,7 @@
 import {
   getEmployeesRepository,
   createEmployeeRepository,
+  deleteEmployeeByDniRepository,
 } from "./employeesRepository.js";
 
 const getEmployees = async () => {
@@ -37,4 +38,14 @@ const createNewEmployee = async (
   }
 };
 
-export { getEmployees, createNewEmployee };
+const deleteEmployeeByDni = async (dni) => {
+  try {
+    const employeDeleted = await deleteEmployeeByDniRepository(dni);
+    return employeDeleted;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+export { getEmployees, createNewEmployee, deleteEmployeeByDni };
