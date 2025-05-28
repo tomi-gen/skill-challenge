@@ -23,7 +23,18 @@ function Table({ dataTable }) {
       <thead>
         <tr>
           {headerTable.map((header, i) => {
-            return <th key={i}>{toDisplayFormat(header)}</th>;
+            return (
+              <th
+                key={i}
+                className={`${
+                  i % 2 == 0
+                    ? "header-column-color"
+                    : "header-alternate-column-color"
+                }`}
+              >
+                {toDisplayFormat(header)}
+              </th>
+            );
           })}
         </tr>
       </thead>
@@ -32,7 +43,16 @@ function Table({ dataTable }) {
           return (
             <tr key={i}>
               {row.map((data, idx) => {
-                return <td key={i + String(idx)}>{data}</td>;
+                return (
+                  <td
+                    className={`${
+                      idx % 2 == 0 ? "column-color" : "alternate-column-color"
+                    }`}
+                    key={i + String(idx)}
+                  >
+                    {data}
+                  </td>
+                );
               })}
             </tr>
           );

@@ -1,7 +1,6 @@
 body {
   margin: 0;
   display: flex;
-  flex-direction: column;
   min-width: 320px;
   min-height: 100vh;
   color: #dbdfe7;
@@ -15,6 +14,7 @@ body {
   background-size: cover;
   width: 100%;
   margin: 0;
+  justify-content: center;
 }
 button {
   border-style: solid;
@@ -25,8 +25,6 @@ ul {
   list-style: none;
 }
 
-body {
-}
 #root {
   padding-top: 70px;
   width: 98%;

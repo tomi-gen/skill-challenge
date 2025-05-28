@@ -9,3 +9,17 @@ td {
   text-align: center;
   padding: 8px;
 }
+.header-column-color {
+  background-color: rgb(31, 41, 55);
+  border-bottom: 1px solid rgb(27, 27, 31);
+}
+.header-alternate-column-color {
+  background-color: rgb(27, 27, 31);
+  border-bottom: 1px solid rgb(31, 41, 55);
+}
+.column-color {
+  background-color: rgb(31, 41, 55, 80%);
+}
+.alternate-column-color {
+  background-color: rgb(27, 27, 31, 80%);
+}
