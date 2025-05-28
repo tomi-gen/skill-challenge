@@ -54,8 +54,32 @@ const deleteEmployeeByDniRepository = (dni) => {
   });
 };
 
+const updateEmployeeByDniRepository = (dni, updates) => {
+  return new Promise((resolve, reject) => {
+    db.all(
+      "UPDATE employees SET dni = ?, name = ?, birthDate = ?, isDeveloper = ?, description = ?, role = ? WHERE dni = ? ",
+      [
+        updates.dni,
+        updates.name,
+        updates.birthDate,
+        updates.isDeveloper,
+        updates.description,
+        updates.role,
+        dni,
+      ],
+      (err, rows) => {
+        if (err) {
+          return reject(err);
+        }
+        resolve(rows);
+      }
+    );
+  });
+};
+
 export {
   getEmployeesRepository,
   createEmployeeRepository,
   deleteEmployeeByDniRepository,
+  updateEmployeeByDniRepository,
 };

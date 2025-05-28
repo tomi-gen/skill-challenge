@@ -2,6 +2,7 @@ import {
   getEmployees,
   createNewEmployee,
   deleteEmployeeByDni,
+  updateEmployeeByDni,
 } from "./employeesServices.js";
 
 const getEmployeesController = async (req, res) => {
@@ -66,7 +67,9 @@ const deleteEmployeeByDniController = async (req, res) => {
 const updateEmployeeByDniController = async (req, res) => {
   try {
     const { dni } = req.params;
-    const employeeUpdated = await updateEmployeeByDni(dni);
+    const updates = req.body;
+
+    const employeeUpdated = await updateEmployeeByDni(dni, updates);
     res.status(200).json({
       message: "Employee updated succesfully",
       employee: employeeUpdated,
