@@ -11,7 +11,7 @@ db.serialize(() => {
 
   db.run(`CREATE TABLE IF NOT EXISTS employees(
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  dni TEXT NOT NULL,
+  dni INTEGER NOT NULL UNIQUE,
   name TEXT NOT NULL,
   birthDate TEXT NOT NULL,
   isDeveloper BOOLEAN DEFAULT FALSE,
