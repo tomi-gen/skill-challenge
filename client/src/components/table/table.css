@@ -2,7 +2,7 @@ table {
   width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 th,
 td {

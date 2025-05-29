@@ -4,6 +4,8 @@ import "./table.css";
 function Table({ dataTable }) {
   const [bodyTable, setBodyTable] = useState([]);
   const [headerTable, setHeaderTable] = useState([]);
+  const [isDeveloperIndex, setIsDeveloperIndex] = useState(-1);
+
   useEffect(() => {
     if (dataTable.length > 0) {
       setBodyTable(getTableValues(dataTable));
@@ -12,11 +14,12 @@ function Table({ dataTable }) {
   }, [dataTable]);
 
   useEffect(() => {
-    console.log(headerTable);
+    headerTable.forEach((h, i) => {
+      if (h === "isDeveloper") {
+        setIsDeveloperIndex(i);
+      }
+    });
   }, [headerTable]);
-  useEffect(() => {
-    console.log(bodyTable);
-  }, [bodyTable]);
 
   return (
     <table>
@@ -43,7 +46,16 @@ function Table({ dataTable }) {
           return (
             <tr key={i}>
               {row.map((data, idx) => {
-                return (
+                return isDeveloperIndex == idx ? (
+                  <td
+                    className={`${
+                      idx % 2 == 0 ? "column-color" : "alternate-column-color"
+                    }`}
+                    key={i + String(idx)}
+                  >
+                    {data == 1 ? "Si" : "No"}
+                  </td>
+                ) : (
                   <td
                     className={`${
                       idx % 2 == 0 ? "column-color" : "alternate-column-color"
