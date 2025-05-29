@@ -1,5 +1,5 @@
 table {
-  width: 100%;
+  width: 98%;
   table-layout: fixed;
   border-collapse: collapse;
   padding-top: 20px;
@@ -23,8 +23,9 @@ td {
 .alternate-column-color {
   background-color: rgb(27, 27, 31, 80%);
 }
-.action-column {
+.controllers {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }

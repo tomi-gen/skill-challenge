@@ -10,3 +10,16 @@
 .column-color .edit-button:hover {
   background-color: rgb(31, 41, 55);
 }
+
+.alternate-column-color .edit-button {
+  background-color: rgb(31, 41, 55);
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.alternate-column-color .edit-button:hover {
+  background-color: rgb(27, 27, 31);
+}

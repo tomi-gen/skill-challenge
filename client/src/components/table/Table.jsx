@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import "./table.css";
-import EditButton from "../edit-button/EditButton";
+import EditButton from "../edit-button/EditButton.jsx";
+import DeleteButton from "../delete-button/DeleteButton.jsx";
 
-function Table({ dataTable }) {
+function Table({ dataTable, setEditButtonClicked, setCompletedFields }) {
   const [bodyTable, setBodyTable] = useState([]);
   const [headerTable, setHeaderTable] = useState([]);
   const [isDeveloperIndex, setIsDeveloperIndex] = useState(-1);
@@ -40,7 +41,15 @@ function Table({ dataTable }) {
               </th>
             );
           })}
-          <th>Action</th>
+          <th
+            className={`action-column ${
+              headerTable.length % 2 != 0
+                ? "header-alternate-column-color"
+                : "header-column-color"
+            }`}
+          >
+            Action
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -75,7 +84,14 @@ function Table({ dataTable }) {
                     : "column-color"
                 }`}
               >
-                <EditButton></EditButton>
+                <div className="controllers">
+                  <EditButton
+                    rowData={row}
+                    setEditButtonClicked={setEditButtonClicked}
+                    setCompletedFields={setCompletedFields}
+                  ></EditButton>
+                  <DeleteButton></DeleteButton>
+                </div>
               </td>
             </tr>
           );
