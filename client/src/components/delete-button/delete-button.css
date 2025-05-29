@@ -1,0 +1,25 @@
+.column-color .delete-button {
+  background-color: rgb(27, 27, 31);
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.column-color .delete-button:hover {
+  background-color: rgb(31, 41, 55);
+}
+
+.alternate-column-color .delete-button {
+  background-color: rgb(31, 41, 55);
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.alternate-column-color .delete-button:hover {
+  background-color: rgb(27, 27, 31);
+}
