@@ -23,3 +23,8 @@ td {
 .alternate-column-color {
   background-color: rgb(27, 27, 31, 80%);
 }
+.action-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

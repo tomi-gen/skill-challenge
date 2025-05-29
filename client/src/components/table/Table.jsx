@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./table.css";
+import EditButton from "../edit-button/EditButton";
 
 function Table({ dataTable }) {
   const [bodyTable, setBodyTable] = useState([]);
@@ -39,6 +40,7 @@ function Table({ dataTable }) {
               </th>
             );
           })}
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -66,6 +68,15 @@ function Table({ dataTable }) {
                   </td>
                 );
               })}
+              <td
+                className={`action-column ${
+                  row.length % 2 != 0
+                    ? "alternate-column-color"
+                    : "column-color"
+                }`}
+              >
+                <EditButton></EditButton>
+              </td>
             </tr>
           );
         })}
