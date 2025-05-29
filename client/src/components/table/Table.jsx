@@ -23,7 +23,7 @@ function Table({ dataTable, setEditButtonClicked, setCompletedFields }) {
     });
   }, [headerTable]);
 
-  return (
+  return dataTable.length > 0 ? (
     <table>
       <thead>
         <tr>
@@ -98,6 +98,10 @@ function Table({ dataTable, setEditButtonClicked, setCompletedFields }) {
         })}
       </tbody>
     </table>
+  ) : (
+    <div className="empty-table">
+      <span>No hay datos en la tabla</span>
+    </div>
   );
 }
 

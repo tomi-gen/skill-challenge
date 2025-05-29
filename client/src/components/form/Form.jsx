@@ -2,7 +2,12 @@ import { useEffect, useState, useRef } from "react";
 import "./form.css";
 const apiUrl = import.meta.env.VITE_API_URL;
 
-function EmployeeForm({ completedFields }) {
+function EmployeeForm({
+  completedFields,
+  setEditButtonClicked,
+  setCreateButtonClicked,
+  editButtonClicked,
+}) {
   const [radioSelected, setRadioSelected] = useState(true);
 
   const dniRef = useRef();
@@ -24,20 +29,39 @@ function EmployeeForm({ completedFields }) {
   };
 
   function sendEmployeeData(employeeData) {
-    return fetch(`${apiUrl}/employees`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(employeeData),
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log("Respuesta del servidor:", result);
-      })
-      .catch((error) => {
-        console.error("Error al enviar:", error);
-      });
+    return editButtonClicked
+      ? fetch(`${apiUrl}/employees/${employeeData[0]}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(employeeData),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            setEditButtonClicked(false);
+            setCreateButtonClicked(false);
+            console.log("Respuesta del servidor:", result);
+          })
+          .catch((error) => {
+            console.error("Error al enviar:", error);
+          })
+      : fetch(`${apiUrl}/employees`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(employeeData),
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            setEditButtonClicked(false);
+            setCreateButtonClicked(false);
+            console.log("Respuesta del servidor:", result);
+          })
+          .catch((error) => {
+            console.error("Error al enviar:", error);
+          });
   }
 
   return (
