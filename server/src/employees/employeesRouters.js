@@ -11,6 +11,6 @@ const employeesRouter = express.Router();
 employeesRouter.get("/", getEmployeesController);
 employeesRouter.post("/", createNewEmployeeController);
 employeesRouter.delete("/:dni", deleteEmployeeByDniController);
-employeesRouter.patch("/:dni", updateEmployeeByDniController);
+employeesRouter.put("/:dni", updateEmployeeByDniController);
 
 export default employeesRouter;
