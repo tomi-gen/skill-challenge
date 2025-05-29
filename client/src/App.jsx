@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 const apiUrl = import.meta.env.VITE_API_URL;
-import Table from "./components/Table.jsx";
-
+import Table from "./components/table/Table.jsx";
+import Title from "./components/title/Title.jsx";
 function App() {
   const [employeesData, setEmployeesData] = useState([]);
 
@@ -12,7 +11,12 @@ function App() {
       .then((result) => setEmployeesData(result));
   }, []);
 
-  return <Table dataTable={employeesData}></Table>;
+  return (
+    <>
+      <Title>Administrador de Empleados</Title>
+      <Table dataTable={employeesData}></Table>
+    </>
+  );
 }
 
 export default App;
