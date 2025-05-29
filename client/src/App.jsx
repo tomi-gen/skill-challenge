@@ -14,6 +14,7 @@ function App() {
   const [completedFields, setCompletedFields] = useState([]);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isDeleted, setIsDeleted] = useState(false);
 
   function fetchApi(endpoint) {
     setIsError(false);
@@ -30,7 +31,7 @@ function App() {
     fetchApi("employees").catch((err) => {
       setIsError(true);
     });
-  }, [editButtonClicked, createButtonClicked]);
+  }, [editButtonClicked, createButtonClicked, isDeleted]);
 
   useEffect(() => {}, [completedFields]);
 
@@ -55,6 +56,8 @@ function App() {
               setCompletedFields={setCompletedFields}
               dataTable={employeesData}
               setEditButtonClicked={setEditButtonClicked}
+              setIsDeleted={setIsDeleted}
+              isDeleted={isDeleted}
             ></Table>
           )}
         </>

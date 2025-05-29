@@ -3,7 +3,13 @@ import "./table.css";
 import EditButton from "../edit-button/EditButton.jsx";
 import DeleteButton from "../delete-button/DeleteButton.jsx";
 
-function Table({ dataTable, setEditButtonClicked, setCompletedFields }) {
+function Table({
+  dataTable,
+  setEditButtonClicked,
+  setCompletedFields,
+  setIsDeleted,
+  isDeleted,
+}) {
   const [bodyTable, setBodyTable] = useState([]);
   const [headerTable, setHeaderTable] = useState([]);
   const [isDeveloperIndex, setIsDeveloperIndex] = useState(-1);
@@ -90,7 +96,11 @@ function Table({ dataTable, setEditButtonClicked, setCompletedFields }) {
                     setEditButtonClicked={setEditButtonClicked}
                     setCompletedFields={setCompletedFields}
                   ></EditButton>
-                  <DeleteButton></DeleteButton>
+                  <DeleteButton
+                    setIsDeleted={setIsDeleted}
+                    dni={row[0]}
+                    isDeleted={isDeleted}
+                  ></DeleteButton>
                 </div>
               </td>
             </tr>
