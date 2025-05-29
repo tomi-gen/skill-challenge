@@ -30,7 +30,7 @@ function EmployeeForm({
 
   function sendEmployeeData(employeeData) {
     return editButtonClicked
-      ? fetch(`${apiUrl}/employees/${employeeData[0]}`, {
+      ? fetch(`${apiUrl}/employees/${completedFields[0]}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
