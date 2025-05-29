@@ -1,0 +1,61 @@
+form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  padding: 20px 10px;
+  background-color: rgb(31, 41, 55, 80%);
+  gap: 15px;
+  border-radius: 15px;
+  margin-bottom: 40px;
+}
+.field-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  gap: 15px;
+}
+.field-container > span {
+  border-bottom: 1px solid #dbdfe7;
+  width: 95%;
+  padding: 0 10px;
+  border-radius: 0;
+}
+.field-container input {
+  width: 95%;
+  background-color: rgb(27, 27, 31);
+  color: #dbdfe7;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: #dbdfe7;
+}
+.field-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.field-radios {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 30px;
+  width: 100%;
+  padding-left: 15px;
+}
+.field-radio {
+  gap: 15px;
+}
+.field-container input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+form button {
+  background-color: rgb(27, 27, 31);
+  padding: 15px 15px;
+  font-size: 15px;
+  color: #dbdfe7;
+  border-radius: 15px;
+}

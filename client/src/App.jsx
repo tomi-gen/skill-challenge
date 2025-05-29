@@ -3,6 +3,8 @@ const apiUrl = import.meta.env.VITE_API_URL;
 import Table from "./components/table/Table.jsx";
 import Title from "./components/title/Title.jsx";
 import Tabulation from "./components/tabulation/Tabulation.jsx";
+import EmployeeForm from "./components/form/Form.jsx";
+
 function App() {
   const [employeesData, setEmployeesData] = useState([]);
   const [editButtonClicked, setEditButtonClicked] = useState(false);
@@ -42,6 +44,7 @@ function App() {
           <Title>
             {createButtonClicked ? "Agregar Empleado" : "Editar Empleado"}
           </Title>
+          <EmployeeForm completedFields={completedFields}></EmployeeForm>
         </>
       )}
     </>
