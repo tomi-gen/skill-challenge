@@ -1,6 +1,26 @@
-# skill-challenge
+# Skill-Challenge
 
 This repository have the objective to determine my skills in the field of development
+
+# Features
+
+
+
+# Packages
+
+## Backend Packages
+
+- cors: ^2.8.5
+- express: ^5.1.0
+- sqlite3: ^5.1.7
+
+## Frontend Packages
+
+- 
+
+# Endpoints
+
+
 
 ### Install Dependences
 
