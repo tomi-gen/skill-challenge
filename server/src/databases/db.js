@@ -27,10 +27,10 @@ db.serialize(() => {
     if (row.count === 0) {
       db.run(
         `INSERT INTO roles (name, description) VALUES 
-  ('QA', 'Quality Assurance'),
-  ('Developer', 'Software Developer'),
-  ('Designer', 'UI/UX Designer'),
-  ('RH', 'Recursos Humanos')`,
+        ('Developer', 'Software Developer'),
+        ('QA', 'Quality Assurance'),
+        ('Designer', 'UI/UX Designer'),
+        ('RH', 'Recursos Humanos')`,
         (err) => {
           if (err) {
             console.error(err);
