@@ -33,7 +33,7 @@ db.serialize(() => {
         ('RH', 'Recursos Humanos')`,
         (err) => {
           if (err) {
-            console.error(err);
+            console.error("Error al insertar los roles iniciales", err);
             return;
           }
           console.log("Roles iniciales insertados");
