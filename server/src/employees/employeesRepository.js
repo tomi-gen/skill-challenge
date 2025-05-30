@@ -14,6 +14,21 @@ const getEmployeesRepository = () => {
   });
 };
 
+const getEmployeeByDniRepository = (dni) => {
+  return new Promise((resolve, reject) => {
+    db.get(
+      "SELECT dni, name, birthDate, isDeveloper, description, role FROM employees WHERE dni = ?",
+      [dni],
+      (err, row) => {
+        if (err) {
+          return reject(err);
+        }
+        resolve(row);
+      }
+    );
+  });
+};
+
 const createEmployeeRepository = (
   dni,
   name,
@@ -23,10 +38,10 @@ const createEmployeeRepository = (
   role
 ) => {
   return new Promise((resolve, reject) => {
-    db.all(
+    db.run(
       "INSERT INTO employees (dni, name, birthDate, isDeveloper, description, role) values (?, ?, ?, ?, ?, ?)",
       [dni, name, birthDate, isDeveloper, description, role],
-      (err, rows) => {
+      (err) => {
         if (err) {
           return reject(err);
         }
@@ -45,18 +60,18 @@ const createEmployeeRepository = (
 
 const deleteEmployeeByDniRepository = (dni) => {
   return new Promise((resolve, reject) => {
-    db.all("DELETE FROM employees WHERE dni = ?", [dni], (err, rows) => {
+    db.run("DELETE FROM employees WHERE dni = ?", [dni], (err) => {
       if (err) {
         return reject(err);
       }
-      resolve(rows);
+      resolve("The employee has been deleted succesfuly");
     });
   });
 };
 
 const updateEmployeeByDniRepository = (dni, updates) => {
   return new Promise((resolve, reject) => {
-    db.all(
+    db.run(
       "UPDATE employees SET dni = ?, name = ?, birthDate = ?, isDeveloper = ?, description = ?, role = ? WHERE dni = ? ",
       [
         updates.dni,
@@ -67,11 +82,11 @@ const updateEmployeeByDniRepository = (dni, updates) => {
         updates.role,
         dni,
       ],
-      (err, rows) => {
+      (err) => {
         if (err) {
           return reject(err);
         }
-        resolve(rows);
+        resolve(updates);
       }
     );
   });
@@ -82,4 +97,5 @@ export {
   createEmployeeRepository,
   deleteEmployeeByDniRepository,
   updateEmployeeByDniRepository,
+  getEmployeeByDniRepository,
 };

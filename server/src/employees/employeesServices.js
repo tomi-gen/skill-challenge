@@ -3,12 +3,23 @@ import {
   createEmployeeRepository,
   deleteEmployeeByDniRepository,
   updateEmployeeByDniRepository,
+  getEmployeeByDniRepository,
 } from "./employeesRepository.js";
 
 const getEmployees = async () => {
   try {
     const employees = await getEmployeesRepository();
     return employees;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+const getEmployeeByDni = async (dni) => {
+  try {
+    const employee = await getEmployeeByDniRepository(dni);
+    return employee;
   } catch (error) {
     console.error(error);
     throw error;
@@ -64,4 +75,5 @@ export {
   createNewEmployee,
   deleteEmployeeByDni,
   updateEmployeeByDni,
+  getEmployeeByDni,
 };

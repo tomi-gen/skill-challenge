@@ -3,6 +3,7 @@ import {
   createNewEmployee,
   deleteEmployeeByDni,
   updateEmployeeByDni,
+  getEmployeeByDni,
 } from "./employeesServices.js";
 
 const getEmployeesController = async (req, res) => {
@@ -14,10 +15,27 @@ const getEmployeesController = async (req, res) => {
     }
     return res.status(200).json(employees);
   } catch (error) {
-    console.error("Error while fetching employee:", error.message);
+    console.error("Error while fetching employees:", error.message);
     return res
       .status(500)
-      .json({ message: "Server error while fetching employee" });
+      .json({ message: "Server error while fetching employees" });
+  }
+};
+
+const getEmployeeByDniController = async (req, res) => {
+  try {
+    const { dni } = req.params;
+    const employees = await getEmployeeByDni(dni);
+
+    if (!employees) {
+      return res.status(404).json({ message: "No employee found" });
+    }
+    return res.status(200).json(employees);
+  } catch (error) {
+    console.error("Error while fetching the employee:", error.message);
+    return res
+      .status(500)
+      .json({ message: "Server error while fetching the employee" });
   }
 };
 
@@ -88,4 +106,5 @@ export {
   createNewEmployeeController,
   deleteEmployeeByDniController,
   updateEmployeeByDniController,
+  getEmployeeByDniController,
 };
