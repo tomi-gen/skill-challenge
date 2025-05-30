@@ -35,9 +35,7 @@ function App() {
     fetchApi("employees");
   }, [editButtonClicked, createButtonClicked, isDeleted]);
 
-  useEffect(() => {
-    console.log(isLoading, isError);
-  }, [completedFields, isError, isLoading]);
+  useEffect(() => {}, [completedFields, isError, isLoading]);
 
   return (
     <>

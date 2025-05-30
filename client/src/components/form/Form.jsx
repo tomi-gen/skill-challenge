@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react";
+import SelectOptions from "../select-options/SelectOptions";
 import "./form.css";
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -9,12 +10,12 @@ function EmployeeForm({
   editButtonClicked,
 }) {
   const [radioSelected, setRadioSelected] = useState(true);
+  const [optionSelected, setOptionSelected] = useState("");
 
   const dniRef = useRef();
   const nameRef = useRef();
   const birthDateRef = useRef();
   const descripcionRef = useRef();
-  const roleRef = useRef();
 
   useEffect(() => {
     completedFields.length > 0
@@ -130,15 +131,13 @@ function EmployeeForm({
           placeholder="Descripción"
         />
       </div>
-
       <div className="field-container">
         <span>Rol</span>
-        <input
-          ref={roleRef}
-          type="text"
-          defaultValue={completedFields ? completedFields[5] : ""}
-          placeholder="Rol"
-        />
+        <SelectOptions
+          setOptionSelected={setOptionSelected}
+          endpoint={"roles"}
+          completedValue={completedFields ? completedFields[5] : ""}
+        ></SelectOptions>
       </div>
       <button
         type="button"
@@ -147,8 +146,7 @@ function EmployeeForm({
           const name = nameRef.current.value.trim();
           const birthDate = birthDateRef.current.value;
           const description = descripcionRef.current.value.trim();
-          const role = roleRef.current.value.trim();
-
+          const role = optionSelected;
           if (
             validateEmptyFields([dni, name, birthDate, description, role]) &&
             validateDni(dni) &&

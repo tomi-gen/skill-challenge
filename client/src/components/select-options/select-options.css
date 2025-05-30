@@ -1,0 +1,25 @@
+select {
+  background-color: rgb(27, 27, 31);
+  color: #dbdfe7;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: #dbdfe7;
+  appearance: none;
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.select-container img {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translate(-200%, -50%);
+}
+.select-container {
+  width: calc(100% + 10px);
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
