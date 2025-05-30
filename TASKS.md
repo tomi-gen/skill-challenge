@@ -4,7 +4,7 @@
 
   Crear formularios de empleados con campos validados y envío al backend
   Estimacion: 2.5 h
-  Duracion:
+  Duracion: 2h
 
   Crear funcion de editar dentro de la tabla
   Estimacion: 1h
@@ -26,7 +26,7 @@
   Estimacion: 2h
   Duracion:
 
-  Agregar interaccion con tabla areas
+  Agregar interaccion con tabla roles
   Estimacion: 1h
   Duracion:
 
@@ -48,10 +48,10 @@
   Estimacion: 1.5 h
   Duracion:
 
-  Crear tabla Areas con insert inicial
+  Crear tabla Roles con insert inicial
   Estimacion: 1h
-  Duracion:
+  Duracion: 0.5
 
   Implementar la ruta GET a la tabla Areas
   Estimacion: 1h
-  Duracion:
+  Duracion: 0.5
