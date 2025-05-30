@@ -24,16 +24,20 @@ function App() {
       .then((result) => {
         setEmployeesData(result);
         setIsLoading(false);
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        setIsError(true);
       });
   }
 
   useEffect(() => {
-    fetchApi("employees").catch((err) => {
-      setIsError(true);
-    });
+    fetchApi("employees");
   }, [editButtonClicked, createButtonClicked, isDeleted]);
 
-  useEffect(() => {}, [completedFields]);
+  useEffect(() => {
+    console.log(isLoading, isError);
+  }, [completedFields, isError, isLoading]);
 
   return (
     <>

@@ -1,7 +1,11 @@
 import "./error.css";
 
 function Error() {
-  return <></>;
+  return (
+    <div className="error-container">
+      <span>Ha ocurrido un error</span>
+    </div>
+  );
 }
 
 export default Error;
