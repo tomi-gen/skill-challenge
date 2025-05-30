@@ -30,6 +30,10 @@
   Estimacion: 1h
   Duracion:
 
+  Agregar alertas de usuario
+  Estimacion: 1.5h
+  Duracion:
+
 - BACKEND
 
   Crear base de datos con tabla empleados
