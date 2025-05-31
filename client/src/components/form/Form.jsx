@@ -180,7 +180,10 @@ function EmployeeForm({
     return isValidFields;
   }
   function validateDni(dni) {
-    const isValidDni = !isNaN(parseInt(dni)) && parseInt(dni) >= 10000000;
+    const isValidDni =
+      !isNaN(parseInt(dni)) &&
+      parseInt(dni) >= 10000000 &&
+      parseInt(dni) == parseFloat(dni);
     if (!isValidDni) {
       alert("El Dni tiene que se un numero valido");
     }

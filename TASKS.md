@@ -28,7 +28,7 @@
 
   Agregar interaccion con tabla roles
   Estimacion: 1h
-  Duracion:
+  Duracion: 1h
 
   Agregar alertas de usuario
   Estimacion: 1.5h
