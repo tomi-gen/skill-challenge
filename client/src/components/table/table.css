@@ -1,13 +1,22 @@
 table {
-  width: 98%;
+  width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
   padding-top: 20px;
+  overflow: scroll;
+  min-width: 1000px;
+  max-height: 600px;
 }
 th,
 td {
   text-align: center;
   padding: 8px;
+}
+thead th {
+  position: sticky;
+  top: 0;
+  background: #1e1e1e;
+  z-index: 1;
 }
 .header-column-color {
   background-color: rgb(31, 41, 55);
@@ -39,4 +48,11 @@ td {
   background-color: rgb(31, 41, 55, 80%);
   border-radius: 50px;
   margin-top: 30px;
+}
+.table-container {
+  margin-top: 20px;
+  width: 98%;
+  max-height: 500px;
+  overflow: auto;
+  margin-bottom: 50px;
 }

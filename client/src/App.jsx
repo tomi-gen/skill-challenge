@@ -12,6 +12,7 @@ function App() {
   const [editButtonClicked, setEditButtonClicked] = useState(false);
   const [createButtonClicked, setCreateButtonClicked] = useState(false);
   const [completedFields, setCompletedFields] = useState([]);
+  const [isCreated, setIsCreated] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
@@ -26,6 +27,7 @@ function App() {
         setIsLoading(false);
       })
       .catch((err) => {
+        console.error(err);
         setIsLoading(false);
         setIsError(true);
       });
@@ -60,6 +62,8 @@ function App() {
               setEditButtonClicked={setEditButtonClicked}
               setIsDeleted={setIsDeleted}
               isDeleted={isDeleted}
+              isCreated={isCreated}
+              setIsCreated={setIsCreated}
             ></Table>
           )}
         </>
@@ -73,6 +77,7 @@ function App() {
             setCreateButtonClicked={setCreateButtonClicked}
             editButtonClicked={editButtonClicked}
             completedFields={completedFields}
+            setIsCreated={setIsCreated}
           ></EmployeeForm>
         </>
       )}

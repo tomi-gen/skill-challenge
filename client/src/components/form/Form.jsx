@@ -8,6 +8,7 @@ function EmployeeForm({
   setEditButtonClicked,
   setCreateButtonClicked,
   editButtonClicked,
+  setIsCreated,
 }) {
   const [radioSelected, setRadioSelected] = useState(true);
   const [optionSelected, setOptionSelected] = useState("");
@@ -58,6 +59,7 @@ function EmployeeForm({
           .then((result) => {
             setEditButtonClicked(false);
             setCreateButtonClicked(false);
+            setIsCreated(true);
             console.log("Respuesta del servidor:", result);
           })
           .catch((error) => {
@@ -178,13 +180,6 @@ function EmployeeForm({
     return isValidFields;
   }
   function validateDni(dni) {
-    console.log(
-      dni,
-      "isNaN",
-      isNaN(parseInt(dni)),
-      "Mayor",
-      parseInt(dni) <= 10000000
-    );
     const isValidDni = !isNaN(parseInt(dni)) && parseInt(dni) >= 10000000;
     if (!isValidDni) {
       alert("El Dni tiene que se un numero valido");
