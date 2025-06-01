@@ -9,6 +9,7 @@ function EmployeeForm({
   setCreateButtonClicked,
   editButtonClicked,
   setIsCreated,
+  setUserMessage,
 }) {
   const [radioSelected, setRadioSelected] = useState(true);
   const [optionSelected, setOptionSelected] = useState("");
@@ -43,10 +44,10 @@ function EmployeeForm({
           .then((result) => {
             setEditButtonClicked(false);
             setCreateButtonClicked(false);
-            console.log("Respuesta del servidor:", result);
+            setUserMessage(result.message);
           })
           .catch((error) => {
-            console.error("Error al enviar:", error);
+            setUserMessage(error.message);
           })
       : fetch(`${apiUrl}/employees`, {
           method: "POST",
@@ -60,10 +61,10 @@ function EmployeeForm({
             setEditButtonClicked(false);
             setCreateButtonClicked(false);
             setIsCreated(true);
-            console.log("Respuesta del servidor:", result);
+            setUserMessage(result.message);
           })
           .catch((error) => {
-            console.error("Error al enviar:", error);
+            setUserMessage(error.message);
           });
   }
 
@@ -175,7 +176,7 @@ function EmployeeForm({
       return field.trim().length == 0;
     });
     if (!isValidFields) {
-      alert("Completa todos los campos");
+      setUserMessage("Complete all fields");
     }
     return isValidFields;
   }
@@ -183,19 +184,21 @@ function EmployeeForm({
     const isValidDni =
       !isNaN(parseInt(dni)) &&
       parseInt(dni) >= 10000000 &&
-      parseInt(dni) == parseFloat(dni);
+      parseInt(dni) == parseFloat(dni) &&
+      parseInt(dni) < 100000000;
     if (!isValidDni) {
-      alert("El Dni tiene que se un numero valido");
+      setUserMessage("The DNI must be a valid number");
     }
     return isValidDni;
   }
   function validateDate(date) {
     const selectedDate = new Date(date);
     const today = new Date();
-    const isValidDate = selectedDate < today;
+    const isValidDate =
+      selectedDate < today && new Date("1900-01-01") < selectedDate;
 
     if (!isValidDate) {
-      alert("La fecha de nacimiento tiene que se una fecha valida");
+      setUserMessage("The birth date must be a valid date");
     }
 
     return isValidDate;

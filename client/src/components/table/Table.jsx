@@ -7,11 +7,12 @@ function Table({
   dataTable,
   setEditButtonClicked,
   setCompletedFields,
-  setIsDeleted,
-  isDeleted,
-  isCreated,
-  setIsCreated,
+  isDeletedUseState,
+  isCreatedUseState,
+  setUserMessage,
 }) {
+  const { isCreated, setIsCreated } = isCreatedUseState;
+  const { isDeleted, setIsDeleted } = isDeletedUseState;
   const [bodyTable, setBodyTable] = useState([]);
   const [headerTable, setHeaderTable] = useState([]);
   const [isDeveloperIndex, setIsDeveloperIndex] = useState(-1);
@@ -109,6 +110,7 @@ function Table({
                       setCompletedFields={setCompletedFields}
                     ></EditButton>
                     <DeleteButton
+                      setUserMessage={setUserMessage}
                       setIsDeleted={setIsDeleted}
                       dni={row[0]}
                       isDeleted={isDeleted}

@@ -6,6 +6,7 @@ import Tabulation from "./components/tabulation/Tabulation.jsx";
 import EmployeeForm from "./components/form/Form.jsx";
 import Loading from "./components/loading/Loading.jsx";
 import Error from "./components/error/error.jsx";
+import UserMessage from "./components/user-message/UserMessage.jsx";
 
 function App() {
   const [employeesData, setEmployeesData] = useState([]);
@@ -16,6 +17,7 @@ function App() {
   const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
+  const [userMessage, setUserMessage] = useState("");
 
   function fetchApi(endpoint) {
     setIsError(false);
@@ -37,10 +39,19 @@ function App() {
     fetchApi("employees");
   }, [editButtonClicked, createButtonClicked, isDeleted]);
 
-  useEffect(() => {}, [completedFields, isError, isLoading]);
+  useEffect(() => {}, [completedFields, isError, isLoading, userMessage]);
 
   return (
     <>
+      {userMessage ? (
+        <UserMessage
+          setUserMessage={setUserMessage}
+          userMessage={userMessage}
+        ></UserMessage>
+      ) : (
+        <></>
+      )}
+
       <Tabulation
         editButtonClicked={editButtonClicked}
         setEditButtonClicked={setEditButtonClicked}
@@ -60,10 +71,9 @@ function App() {
               setCompletedFields={setCompletedFields}
               dataTable={employeesData}
               setEditButtonClicked={setEditButtonClicked}
-              setIsDeleted={setIsDeleted}
-              isDeleted={isDeleted}
-              isCreated={isCreated}
-              setIsCreated={setIsCreated}
+              isDeletedUseState={{ setIsDeleted, isDeleted }}
+              isCreatedUseState={{ setIsCreated, isCreated }}
+              setUserMessage={setUserMessage}
             ></Table>
           )}
         </>
@@ -78,6 +88,7 @@ function App() {
             editButtonClicked={editButtonClicked}
             completedFields={completedFields}
             setIsCreated={setIsCreated}
+            setUserMessage={setUserMessage}
           ></EmployeeForm>
         </>
       )}

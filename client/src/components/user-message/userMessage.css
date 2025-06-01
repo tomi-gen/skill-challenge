@@ -1,0 +1,23 @@
+.user-message {
+  position: fixed;
+  top: 85vh;
+  right: 0%;
+  animation: user-message-animation 2.1s;
+  padding: 10px 15px;
+  background-color: rgb(31, 41, 55);
+  border-radius: 15px;
+}
+@keyframes user-message-animation {
+  0% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+  20% {
+    opacity: 1;
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-20%);
+  }
+}

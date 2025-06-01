@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 const apiUrl = import.meta.env.VITE_API_URL;
 
-function DeleteButton({ dni, setIsDeleted, isDeleted }) {
+function DeleteButton({ dni, setIsDeleted, isDeleted, setUserMessage }) {
   const [isDeleting, setIsDeleting] = useState(false);
   function deleteEmployee() {
     fetch(`${apiUrl}/employees/${dni}`, {
@@ -17,10 +17,10 @@ function DeleteButton({ dni, setIsDeleted, isDeleted }) {
       .then((response) => response.json())
       .then((result) => {
         setIsDeleted(!isDeleted);
-        console.log("Respuesta del servidor:", result);
+        setUserMessage(result.message);
       })
       .catch((error) => {
-        console.error("Error al enviar:", error);
+        setUserMessage(error.message);
       });
   }
 
