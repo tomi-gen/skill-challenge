@@ -5,7 +5,7 @@ import {
   deleteEmployeeByDniController,
   updateEmployeeByDniController,
   getEmployeeByDniController,
-} from "./employeesControllers.js";
+} from "../controllers/employeesControllers.js";
 
 const employeesRouter = express.Router();
 

@@ -4,7 +4,12 @@ import {
   deleteEmployeeByDniRepository,
   updateEmployeeByDniRepository,
   getEmployeeByDniRepository,
-} from "./employeesRepository.js";
+} from "../repositry/employeesRepository.js";
+import {
+  createEmployeeValidation,
+  updateEmployeeValidation,
+  dniEmployeeValidation,
+} from "../validations/employeesValidations.js";
 
 const getEmployees = async () => {
   try {
@@ -18,6 +23,7 @@ const getEmployees = async () => {
 
 const getEmployeeByDni = async (dni) => {
   try {
+    dniEmployeeValidation(dni);
     const employee = await getEmployeeByDniRepository(dni);
     return employee;
   } catch (error) {
@@ -35,6 +41,15 @@ const createNewEmployee = async (
   role
 ) => {
   try {
+    await createEmployeeValidation(
+      dni,
+      name,
+      birthDate,
+      isDeveloper,
+      description,
+      role
+    );
+
     const newEmployee = await createEmployeeRepository(
       dni,
       name,
@@ -52,6 +67,7 @@ const createNewEmployee = async (
 
 const deleteEmployeeByDni = async (dni) => {
   try {
+    dniEmployeeValidation(dni);
     const employeDeleted = await deleteEmployeeByDniRepository(dni);
     return employeDeleted;
   } catch (error) {
@@ -62,6 +78,7 @@ const deleteEmployeeByDni = async (dni) => {
 
 const updateEmployeeByDni = async (dni, updates) => {
   try {
+    await updateEmployeeValidation(updates, dni);
     const employeeUpdated = await updateEmployeeByDniRepository(dni, updates);
     return employeeUpdated;
   } catch (error) {

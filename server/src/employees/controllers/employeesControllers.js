@@ -4,7 +4,7 @@ import {
   deleteEmployeeByDni,
   updateEmployeeByDni,
   getEmployeeByDni,
-} from "./employeesServices.js";
+} from "../services/employeesServices.js";
 
 const getEmployeesController = async (req, res) => {
   try {
@@ -42,6 +42,7 @@ const getEmployeeByDniController = async (req, res) => {
 const createNewEmployeeController = async (req, res) => {
   try {
     const { dni, name, birthDate, isDeveloper, description, role } = req.body;
+
     const newEmployee = await createNewEmployee(
       dni,
       name,

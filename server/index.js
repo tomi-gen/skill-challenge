@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import employeesRouter from "./src/employees/employeesRouters.js";
+import employeesRouter from "./src/employees/routers/employeesRouters.js";
 import rolesRouter from "./src/roles/rolesRouter.js";
 
 const app = express();

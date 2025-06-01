@@ -1,4 +1,4 @@
-import db from "../databases/db.js";
+import db from "../../databases/db.js";
 
 const getEmployeesRepository = () => {
   return new Promise((resolve, reject) => {
