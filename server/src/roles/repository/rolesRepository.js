@@ -1,4 +1,4 @@
-import db from "../databases/db.js";
+import db from "../../databases/db.js";
 
 const getRolesRepository = async () => {
   return new Promise((resolve, reject) => {

@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import employeesRouter from "./src/employees/routers/employeesRouters.js";
-import rolesRouter from "./src/roles/rolesRouter.js";
+import rolesRouter from "./src/roles/routers/rolesRouters.js";
 
 const app = express();
 const PORT = 3000;

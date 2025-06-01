@@ -1,4 +1,4 @@
-import { getRolesRepository } from "./rolesRepository.js";
+import { getRolesRepository } from "../repository/rolesRepository.js";
 
 const getRoles = async () => {
   try {

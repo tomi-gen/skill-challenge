@@ -4,7 +4,7 @@ import {
   deleteEmployeeByDniRepository,
   updateEmployeeByDniRepository,
   getEmployeeByDniRepository,
-} from "../repositry/employeesRepository.js";
+} from "../repository/employeesRepository.js";
 import {
   createEmployeeValidation,
   updateEmployeeValidation,
