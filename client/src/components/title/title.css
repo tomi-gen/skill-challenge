@@ -1,6 +1,19 @@
 h1 {
   width: 98%;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid #fff;
   margin-top: 20px;
+  font-size: 28px;
+}
+@media (min-width: 768px) {
+  h1 {
+    text-align: left;
+    font-size: 30px;
+  }
+}
+@media (min-width: 1024px) {
+  h1 {
+    text-align: left;
+    font-size: 36px;
+  }
 }

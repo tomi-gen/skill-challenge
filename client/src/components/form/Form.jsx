@@ -81,7 +81,7 @@ function EmployeeForm({
       </div>
 
       <div className="field-container">
-        <span>Nombre Completo</span>
+        <span>Complete Name</span>
         <input
           ref={nameRef}
           type="text"
@@ -91,7 +91,7 @@ function EmployeeForm({
       </div>
 
       <div className="field-container">
-        <span>Fecha de Nacimiento</span>
+        <span>Birth Date</span>
         <input
           ref={birthDateRef}
           type="date"
@@ -100,10 +100,10 @@ function EmployeeForm({
       </div>
 
       <div className="field-container">
-        <span>Es Desarrollador</span>
+        <span>Is Developer</span>
         <div className="field-radios">
           <div className="field-radio">
-            <span>Si</span>
+            <span>Yes</span>
             <input
               type="radio"
               name="isDeveloper"
@@ -126,7 +126,7 @@ function EmployeeForm({
       </div>
 
       <div className="field-container">
-        <span>Descripcion</span>
+        <span>Description</span>
         <input
           ref={descripcionRef}
           type="text"
@@ -135,7 +135,7 @@ function EmployeeForm({
         />
       </div>
       <div className="field-container">
-        <span>Rol</span>
+        <span>Role</span>
         <SelectOptions
           setOptionSelected={setOptionSelected}
           endpoint={"roles"}
@@ -166,7 +166,7 @@ function EmployeeForm({
         }}
         className="submit-button"
       >
-        Enviar
+        Send
       </button>
     </form>
   );

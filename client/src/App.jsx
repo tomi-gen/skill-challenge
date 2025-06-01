@@ -61,7 +61,7 @@ function App() {
 
       {!editButtonClicked && !createButtonClicked ? (
         <>
-          <Title>Administrador de Empleados</Title>
+          <Title>Employee Administration</Title>
           {isLoading ? (
             <Loading></Loading>
           ) : isError ? (
@@ -80,7 +80,7 @@ function App() {
       ) : (
         <>
           <Title>
-            {createButtonClicked ? "Agregar Empleado" : "Editar Empleado"}
+            {createButtonClicked ? "Add Employee" : "Edit Employee"}
           </Title>
           <EmployeeForm
             setEditButtonClicked={setEditButtonClicked}

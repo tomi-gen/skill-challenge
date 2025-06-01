@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./tabulation.css";
 import { useEffect } from "react";
+import Tab from "./tab/Tab.jsx";
 
 function Tabulation({
   editButtonClicked,
@@ -17,20 +18,21 @@ function Tabulation({
   return (
     <div className="tabulation">
       {
-        <button
-          onClick={() => {
+        <Tab
+          onClickAction={() => {
             setEditButtonClicked(false);
             setCreateButtonClicked(false);
             setTabSelected(0);
           }}
-          className={tabSelected == 0 ? "" : "tab-not-selected"}
+          tabSelected={tabSelected}
+          tabPosition={0}
         >
           Tabla
-        </button>
+        </Tab>
       }
       {
-        <button
-          onClick={() => {
+        <Tab
+          onClickAction={() => {
             setTabSelected(1);
             if (!editButtonClicked) {
               setCompletedFields([]);
@@ -38,10 +40,11 @@ function Tabulation({
               setEditButtonClicked(false);
             }
           }}
-          className={tabSelected == 1 ? "" : "tab-not-selected"}
+          tabSelected={tabSelected}
+          tabPosition={1}
         >
           Empleado
-        </button>
+        </Tab>
       }
     </div>
   );

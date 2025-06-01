@@ -5,7 +5,7 @@ function ConfirmDelete({ dni, setIsDeleting, deleteEmployee }) {
     <div className="confirm-delete-background">
       <div className="confirm-delete-box">
         <div className="confirm-delete-ask">
-          <span>{`¿Desea borrar al empleado de DNI: ${dni}?`}</span>
+          <span>{`The employee with DNI: ${dni} will be deleted. Do you want to continue?`}</span>
         </div>
         <div className="confirm-delete-controllers">
           <button

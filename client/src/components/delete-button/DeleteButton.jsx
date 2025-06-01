@@ -1,6 +1,6 @@
 import deleteLogo from "../../assets/delete-image.svg";
 import "./delete-button.css";
-import ConfirmDelete from "../confirm-delete/ConfirmDelete";
+import ConfirmDelete from "./confirm-delete/ConfirmDelete";
 import { useState } from "react";
 import { useEffect } from "react";
 const apiUrl = import.meta.env.VITE_API_URL;
