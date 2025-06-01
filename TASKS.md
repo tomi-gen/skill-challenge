@@ -46,7 +46,7 @@
 
   Validaciones de entrada
   Estimacion: 1.5 h
-  Duracion:
+  Duracion: 1.5h
 
   Crear tabla Roles con insert inicial
   Estimacion: 1h
