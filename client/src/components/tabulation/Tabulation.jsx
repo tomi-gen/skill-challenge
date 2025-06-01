@@ -17,35 +17,31 @@ function Tabulation({
   }, [editButtonClicked]);
   return (
     <div className="tabulation">
-      {
-        <Tab
-          onClickAction={() => {
+      <Tab
+        onClickAction={() => {
+          setEditButtonClicked(false);
+          setCreateButtonClicked(false);
+          setTabSelected(0);
+        }}
+        tabSelected={tabSelected}
+        tabPosition={0}
+      >
+        Table
+      </Tab>
+      <Tab
+        onClickAction={() => {
+          setTabSelected(1);
+          if (!editButtonClicked) {
+            setCompletedFields([]);
+            setCreateButtonClicked(true);
             setEditButtonClicked(false);
-            setCreateButtonClicked(false);
-            setTabSelected(0);
-          }}
-          tabSelected={tabSelected}
-          tabPosition={0}
-        >
-          Tabla
-        </Tab>
-      }
-      {
-        <Tab
-          onClickAction={() => {
-            setTabSelected(1);
-            if (!editButtonClicked) {
-              setCompletedFields([]);
-              setCreateButtonClicked(true);
-              setEditButtonClicked(false);
-            }
-          }}
-          tabSelected={tabSelected}
-          tabPosition={1}
-        >
-          Empleado
-        </Tab>
-      }
+          }
+        }}
+        tabSelected={tabSelected}
+        tabPosition={1}
+      >
+        Employee
+      </Tab>
     </div>
   );
 }

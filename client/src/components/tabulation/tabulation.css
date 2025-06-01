@@ -17,19 +17,21 @@
 
 .tabulation button.tab-not-selected:last-child {
   background-color: rgb(31, 41, 55);
-  border-radius: 0 0 0 40px;
 }
 
 .tabulation button.tab-not-selected:first-child {
   background-color: rgb(31, 41, 55);
-  border-radius: 0 0 40px 0;
 }
 .tabulation button.tab-not-selected:last-child:hover {
   background-color: rgb(31, 41, 55, 50%);
-  border-radius: 0 0 0 40px;
 }
 
 .tabulation button.tab-not-selected:first-child:hover {
   background-color: rgb(31, 41, 55, 50%);
+}
+.pre-border {
   border-radius: 0 0 40px 0;
+}
+.post-border {
+  border-radius: 0 0 0 40px;
 }

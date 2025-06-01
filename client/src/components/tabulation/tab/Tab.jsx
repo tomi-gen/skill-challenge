@@ -5,7 +5,17 @@ function Tab({ onClickAction, tabSelected, children, tabPosition }) {
   return (
     <button
       onClick={onClickAction}
-      className={tabSelected == tabPosition ? "" : "tab-not-selected"}
+      className={
+        tabSelected == tabPosition
+          ? ""
+          : `tab-not-selected ${
+              tabSelected + 1 == tabPosition
+                ? "post-border"
+                : tabSelected - 1 == tabPosition
+                ? "pre-border"
+                : ""
+            }`
+      }
     >
       {children}
     </button>
