@@ -42,9 +42,13 @@ function EmployeeForm({
         })
           .then((response) => response.json())
           .then((result) => {
-            setEditButtonClicked(false);
-            setCreateButtonClicked(false);
-            setUserMessage(result.message);
+            if (result.error) {
+              setUserMessage(result.error);
+            } else {
+              setEditButtonClicked(false);
+              setCreateButtonClicked(false);
+              setUserMessage(result.message);
+            }
           })
           .catch((error) => {
             setUserMessage(error.message);
@@ -58,10 +62,14 @@ function EmployeeForm({
         })
           .then((response) => response.json())
           .then((result) => {
-            setEditButtonClicked(false);
-            setCreateButtonClicked(false);
             setIsCreated(true);
-            setUserMessage(result.message);
+            if (result.error) {
+              setUserMessage(result.error);
+            } else {
+              setEditButtonClicked(false);
+              setCreateButtonClicked(false);
+              setUserMessage(result.message);
+            }
           })
           .catch((error) => {
             setUserMessage(error.message);
@@ -151,7 +159,7 @@ function EmployeeForm({
           const description = descripcionRef.current.value.trim();
           const role = optionSelected;
           if (
-            validateEmptyFields([dni, name, birthDate, description, role]) &&
+            validateEmptyFields([dni, name, birthDate, role]) &&
             validateDni(dni) &&
             validateDate(birthDate)
           )
