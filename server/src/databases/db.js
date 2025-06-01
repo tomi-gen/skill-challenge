@@ -30,13 +30,13 @@ db.serialize(() => {
         ('Developer', 'Software Developer'),
         ('QA', 'Quality Assurance'),
         ('Designer', 'UI/UX Designer'),
-        ('RH', 'Recursos Humanos')`,
+        ('RH', 'Human Resources')`,
         (err) => {
           if (err) {
-            console.error("Error al insertar los roles iniciales", err);
+            console.error("Error inserting initial roles", err);
             return;
           }
-          console.log("Roles iniciales insertados");
+          console.log("Inserted initial roles");
         }
       );
     }
