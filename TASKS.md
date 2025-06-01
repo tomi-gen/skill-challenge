@@ -24,7 +24,7 @@
 
   Hacer la pagina responsiva
   Estimacion: 2h
-  Duracion:
+  Duracion: 1h
 
   Agregar interaccion con tabla roles
   Estimacion: 1h
@@ -32,7 +32,7 @@
 
   Agregar alertas de usuario
   Estimacion: 1.5h
-  Duracion:
+  Duracion: 1h
 
 - BACKEND
 
