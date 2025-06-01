@@ -23,6 +23,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 15px;
+  padding: 0 20px;
 }
 .confirm-delete-controllers {
   display: flex;
@@ -33,4 +34,7 @@
   background-color: rgba(27, 27, 31);
   color: #dbdfe7;
   border-radius: 10px;
+}
+.confirm-delete-controllers button:hover {
+  background-color: rgb(31, 41, 55);
 }
