@@ -24,10 +24,7 @@ function DeleteButton({ dni, setIsDeleted, isDeleted, setUserMessage }) {
       });
   }
 
-  useEffect(() => {
-    if (isDeleting) {
-    }
-  }, [isDeleting]);
+  useEffect(() => {}, [isDeleting, dni]);
 
   return (
     <>
