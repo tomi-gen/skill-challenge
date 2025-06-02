@@ -1,4 +1,9 @@
 import { useEffect, useState, useRef } from "react";
+import {
+  validateDate,
+  validateDni,
+  validateEmptyFields,
+} from "./formValidations";
 import SelectOptions from "../select-options/SelectOptions";
 import "./form.css";
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -158,11 +163,13 @@ function EmployeeForm({
           const birthDate = birthDateRef.current.value;
           const description = descripcionRef.current.value.trim();
           const role = optionSelected;
-          if (
-            validateEmptyFields([dni, name, birthDate, role]) &&
-            validateDni(dni) &&
-            validateDate(birthDate)
-          )
+          if (!validateEmptyFields([dni, name, birthDate, role])) {
+            setUserMessage("Complete all fields");
+          } else if (!validateDni(dni)) {
+            setUserMessage("The DNI must be a valid number");
+          } else if (!validateDate(birthDate)) {
+            setUserMessage("The birth date must be a valid date");
+          } else {
             sendEmployeeData({
               dni,
               name,
@@ -171,6 +178,7 @@ function EmployeeForm({
               description,
               role,
             });
+          }
         }}
         className="submit-button"
       >
@@ -178,39 +186,6 @@ function EmployeeForm({
       </button>
     </form>
   );
-
-  function validateEmptyFields(fields) {
-    const isValidFields = !fields.some((field) => {
-      return field.trim().length == 0;
-    });
-    if (!isValidFields) {
-      setUserMessage("Complete all fields");
-    }
-    return isValidFields;
-  }
-  function validateDni(dni) {
-    const isValidDni =
-      !isNaN(parseInt(dni)) &&
-      parseInt(dni) >= 10000000 &&
-      parseInt(dni) == parseFloat(dni) &&
-      parseInt(dni) < 100000000;
-    if (!isValidDni) {
-      setUserMessage("The DNI must be a valid number");
-    }
-    return isValidDni;
-  }
-  function validateDate(date) {
-    const selectedDate = new Date(date);
-    const today = new Date();
-    const isValidDate =
-      selectedDate < today && new Date("1900-01-01") < selectedDate;
-
-    if (!isValidDate) {
-      setUserMessage("The birth date must be a valid date");
-    }
-
-    return isValidDate;
-  }
 }
 
 export default EmployeeForm;

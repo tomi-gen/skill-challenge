@@ -125,7 +125,7 @@ function Table({
     </div>
   ) : (
     <div className="empty-table">
-      <span>No hay datos en la tabla</span>
+      <span>There is no data in the table</span>
     </div>
   );
 }
