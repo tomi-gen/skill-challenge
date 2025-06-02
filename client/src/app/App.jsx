@@ -1,12 +1,12 @@
 const apiUrl = import.meta.env.VITE_API_URL;
 import { useEffect, useState } from "react";
-import Table from "./components/table/Table.jsx";
-import Title from "./components/title/Title.jsx";
-import Tabulation from "./components/tabulation/Tabulation.jsx";
-import EmployeeForm from "./components/form/Form.jsx";
-import Loading from "./components/loading/Loading.jsx";
-import Error from "./components/error/error.jsx";
-import UserMessage from "./components/user-message/UserMessage.jsx";
+import Table from "../components/table/Table.jsx";
+import Title from "../components/title/Title.jsx";
+import Tabulation from "../components/tabulation/Tabulation.jsx";
+import EmployeeForm from "../components/form/Form.jsx";
+import Loading from "../components/loading/Loading.jsx";
+import Error from "../components/error/error.jsx";
+import UserMessage from "../components/user-message/UserMessage.jsx";
 
 function App() {
   const [employeesData, setEmployeesData] = useState([]);
