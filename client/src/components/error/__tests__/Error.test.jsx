@@ -1,6 +1,6 @@
 import { cleanup, render, screen } from "@testing-library/react";
 import { afterEach, describe, it } from "vitest";
-import Error from "./Error.jsx";
+import Error from "../error.jsx";
 
 afterEach(cleanup);
 
