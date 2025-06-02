@@ -1,11 +1,11 @@
 const validateEmptyFields = (fields) => {
-  if (!fields || fields.length == 0 || !Array.isArray(fields)) {
-    return false;
-  }
-  const isValidFields = !fields.some((field) => {
-    return toString(field).trim().length == 0;
-  });
-  return isValidFields;
+  return (
+    Array.isArray(fields) &&
+    fields.length > 0 &&
+    fields.every((field) => {
+      return String(field).trim().length > 0;
+    })
+  );
 };
 const validateDni = (dni) => {
   const isValidDni =

@@ -99,13 +99,14 @@ function EmployeeForm({
           ref={nameRef}
           type="text"
           defaultValue={completedFields ? completedFields[1] : ""}
-          placeholder="Nombre Completo"
+          placeholder="Complete Name"
         />
       </div>
 
       <div className="field-container">
         <span>Birth Date</span>
         <input
+          role="birth-date"
           ref={birthDateRef}
           type="date"
           defaultValue={completedFields ? completedFields[2] : ""}
@@ -144,7 +145,7 @@ function EmployeeForm({
           ref={descripcionRef}
           type="text"
           defaultValue={completedFields ? completedFields[4] : ""}
-          placeholder="Descripción"
+          placeholder="Description"
         />
       </div>
       <div className="field-container">

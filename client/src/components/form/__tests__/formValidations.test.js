@@ -42,7 +42,7 @@ describe("Function validateDni", () => {
   });
 });
 describe("Function validateEmptyFields", () => {
-  it("validateDni must be a function", () => {
+  it("validateEmptyFields must be a function", () => {
     expect(typeof validateEmptyFields).toBe("function");
   });
   it("Fields must be have an array with length", () => {
