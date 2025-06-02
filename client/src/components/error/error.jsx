@@ -3,7 +3,7 @@ import "./error.css";
 function Error() {
   return (
     <div className="error-container">
-      <span>Ha ocurrido un error</span>
+      <span>An error has occurred</span>
     </div>
   );
 }
