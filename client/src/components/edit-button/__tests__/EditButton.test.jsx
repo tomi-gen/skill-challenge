@@ -1,10 +1,10 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { afterEach, describe, it, vi, expect } from "vitest";
-import EditButton from "../EditButton";
+import EditButton from "../EditButton.jsx";
 
 afterEach(cleanup);
 
-describe("EditButton tests", () => {
+describe("EditButton test", () => {
   it("Should render component with image", () => {
     render(
       <EditButton

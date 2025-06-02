@@ -13,7 +13,7 @@ function ConfirmDelete({ dni, setIsDeleting, deleteEmployee }) {
               setIsDeleting(false);
             }}
           >
-            Reachazar
+            Decline
           </button>
           <button
             onClick={() => {
@@ -21,7 +21,7 @@ function ConfirmDelete({ dni, setIsDeleting, deleteEmployee }) {
               setIsDeleting(false);
             }}
           >
-            Confirmar
+            Confirm
           </button>
         </div>
       </div>
