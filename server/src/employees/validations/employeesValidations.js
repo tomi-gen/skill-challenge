@@ -30,9 +30,11 @@ const updateEmployeeValidation = async (
     throw new Error(`The employee with dni ${paramDni} does not exists`);
   }
 
-  const employee = await getEmployeeByDni(dni);
-  if (employee) {
-    throw new Error(`The employee with dni ${dni} already exists`);
+  if (paramDni != dni) {
+    const employee = await getEmployeeByDni(dni);
+    if (employee) {
+      throw new Error(`The employee with dni ${dni} already exists`);
+    }
   }
 };
 
