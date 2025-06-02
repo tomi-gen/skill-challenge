@@ -3,10 +3,6 @@ import { render, screen, waitFor } from "@testing-library/react";
 import App from "../App.jsx";
 
 describe("App test", () => {
-  beforeEach(() => {
-    vi.resetAllMocks();
-  });
-
   it("Should render the app and fetch employee data", async () => {
     const mockData = [{ id: 1, name: "full name" }];
     global.fetch = vi.fn(() =>

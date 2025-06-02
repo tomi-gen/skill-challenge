@@ -11,7 +11,6 @@ import EmployeeForm from "../Form.jsx";
 afterEach(cleanup);
 
 describe("Employee Form test:", () => {
-  afterEach(cleanup);
   beforeEach(() => {
     global.fetch = vi.fn(() =>
       Promise.resolve({
