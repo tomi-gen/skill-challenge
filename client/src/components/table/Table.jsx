@@ -2,6 +2,11 @@ import { useEffect, useState, useRef } from "react";
 import "./table.css";
 import EditButton from "../edit-button/EditButton.jsx";
 import DeleteButton from "../delete-button/DeleteButton.jsx";
+import {
+  toDisplayFormat,
+  getHeaderValues,
+  getTableValues,
+} from "./tableUtils.js";
 
 function Table({
   dataTable,
@@ -128,23 +133,6 @@ function Table({
       <span>There is no data in the table</span>
     </div>
   );
-}
-
-function toDisplayFormat(str) {
-  return str
-    .replace(/([A-Z])/g, " $1")
-    .replace(/^./, (s) => s.toUpperCase())
-    .trim();
-}
-
-function getTableValues(dataTable) {
-  return dataTable.map((d) => {
-    return Object.values(d);
-  });
-}
-
-function getHeaderValues(dataTable) {
-  return Object.keys(dataTable[0]);
 }
 
 export default Table;
