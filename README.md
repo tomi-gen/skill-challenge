@@ -52,6 +52,9 @@ This repository have the objective to determine my skills in the field of develo
    Params: dni (string or number).
    Response: Returns a confirmation message about successful deletion.
 
+6. GET /roles: Get a list of all roles in the database.
+   Response: Array of roles objects.
+
 ### Install Dependences
 
 - Open the terminal and begin going to the server with `cd server`
