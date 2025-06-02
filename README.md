@@ -17,7 +17,8 @@ This repository have the objective to determine my skills in the field of develo
 
 # 2. Frontend Packages
 
-- 
+- vitest: ^3.2.0
+- happy-dom: ^17.5.6
 
 # Endpoints
 
